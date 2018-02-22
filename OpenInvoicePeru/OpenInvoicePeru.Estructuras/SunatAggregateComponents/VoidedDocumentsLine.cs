@@ -38,6 +38,7 @@ namespace OpenInvoicePeru.Estructuras.SunatAggregateComponents
         public BillingReference BillingReference { get; set; }
 
         public int? ConditionCode { get; set; }
+        public SUNATPerceptionSummaryDocumentReference SUNATPerceptionSummaryDocumentReference { get; set; }
 
         public VoidedDocumentsLine()
         {

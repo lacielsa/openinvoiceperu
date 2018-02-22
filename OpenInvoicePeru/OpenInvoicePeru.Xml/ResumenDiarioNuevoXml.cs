@@ -111,19 +111,39 @@ namespace OpenInvoicePeru.Xml
 
                 };
 
-             /*  if (grupo.TotalDescuentos > 0)
+                if (grupo.MontoPercepcion > 0)
                 {
-                    linea.AllowanceCharge = new AllowanceCharge
+                    linea.SUNATPerceptionSummaryDocumentReference = new SUNATPerceptionSummaryDocumentReference()
                     {
-                        ChargeIndicator = true,
-                        Amount = new PayableAmount
+                        SUNATPerceptionSystemCode = grupo.RegimenPercepcion,
+                        SUNATPerceptionPercent = grupo.PorcentajePercepcion,
+                        TotalInvoiceAmount = new PayableAmount()
                         {
                             CurrencyId = grupo.Moneda,
-                            Value = grupo.TotalDescuentos
-                        }
-
+                            Value = grupo.MontoPercepcion
+                        },
+                        TotalPaid = new PayableAmount()
+                        {
+                            CurrencyId = grupo.Moneda,
+                            Value = grupo.TotalVenta
+                        },
+                        SUNATTotalCashed = grupo.MontoPercepcion + grupo.TotalVenta
                     };
-                }*/
+                }
+
+                /*  if (grupo.TotalDescuentos > 0)
+                   {
+                       linea.AllowanceCharge = new AllowanceCharge
+                       {
+                           ChargeIndicator = true,
+                           Amount = new PayableAmount
+                           {
+                               CurrencyId = grupo.Moneda,
+                               Value = grupo.TotalDescuentos
+                           }
+
+                       };
+                   }*/
 
                 if (grupo.Exoneradas > 0)
                 {

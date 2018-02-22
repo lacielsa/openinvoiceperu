@@ -19,5 +19,9 @@ namespace OpenInvoicePeru.Comun.Dto.Modelos
         public string DocumentoRelacionado { get; set; }
 
         public string TipoDocumentoRelacionado { get; set; }
+
+        public decimal MontoPercepcion { get; set; }
+        public string RegimenPercepcion { get; set; }
+        public decimal PorcentajePercepcion { get; set; }
     }
 }

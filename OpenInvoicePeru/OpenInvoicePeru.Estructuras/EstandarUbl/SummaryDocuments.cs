@@ -221,6 +221,30 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
                         }
                         writer.WriteEndElement();
                     }
+
+                    if (item.SUNATPerceptionSummaryDocumentReference.TotalInvoiceAmount.Value > 0)
+                    {
+                        writer.WriteStartElement("sac:SUNATPerceptionSummaryDocumentReference");
+                        {
+                            writer.WriteElementString("sac:SUNATPerceptionSystemCode", item.SUNATPerceptionSummaryDocumentReference.SUNATPerceptionSystemCode);
+                            writer.WriteElementString("sac:SUNATPerceptionPercent", item.SUNATPerceptionSummaryDocumentReference.SUNATPerceptionPercent.ToString(Formatos.FormatoNumerico, Formato));
+                            writer.WriteStartElement("cbc:TotalInvoiceAmount");
+                            {
+                                writer.WriteAttributeString("currencyID", item.TotalAmount.CurrencyId);
+                                writer.WriteValue(item.SUNATPerceptionSummaryDocumentReference.TotalInvoiceAmount.Value.ToString(Formatos.FormatoNumerico, Formato));
+                            }
+                            writer.WriteEndElement();
+                            writer.WriteElementString("sac:SUNATTotalCashed", item.SUNATPerceptionSummaryDocumentReference.TotalPaid.Value.ToString(Formatos.FormatoNumerico, Formato));
+                            writer.WriteStartElement("cbc:TaxableAmount");
+                            {
+                                writer.WriteAttributeString("currencyID", item.SUNATPerceptionSummaryDocumentReference.TaxableAmount.CurrencyId);
+                                writer.WriteValue(item.SUNATPerceptionSummaryDocumentReference.TaxableAmount.Value.ToString(Formatos.FormatoNumerico, Formato));
+                            }
+                            writer.WriteEndElement();
+                        }
+                        writer.WriteEndElement();
+                    }
+
                     if (item.ConditionCode.HasValue)
                     {
                         writer.WriteStartElement("cac:Status");
