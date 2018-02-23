@@ -238,7 +238,8 @@ namespace OpenInvoicePeru.Estructuras.EstandarUbl
                             {
                                 writer.WriteAttributeString("currencyID", item.TotalAmount.CurrencyId);
                                 writer.WriteValue(item.SUNATPerceptionSummaryDocumentReference.SUNATTotalCashed.ToString(Formatos.FormatoNumerico, Formato));                                
-                            }                            
+                            }
+                            writer.WriteEndElement();
                             writer.WriteStartElement("cbc:TaxableAmount");
                             {
                                 writer.WriteAttributeString("currencyID", item.SUNATPerceptionSummaryDocumentReference.TaxableAmount.CurrencyId);
