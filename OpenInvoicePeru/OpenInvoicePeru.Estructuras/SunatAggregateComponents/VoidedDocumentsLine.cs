@@ -48,6 +48,7 @@ namespace OpenInvoicePeru.Estructuras.SunatAggregateComponents
             TaxTotals = new List<TaxTotal>();
             AccountingCustomerParty = new AccountingSupplierParty();
             BillingReference = new BillingReference();
+            SUNATPerceptionSummaryDocumentReference = new SUNATPerceptionSummaryDocumentReference();
         }
     }
 }

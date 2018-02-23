@@ -11,8 +11,7 @@ namespace OpenInvoicePeru.Estructuras.CommonAggregateComponents
     {
         public string SUNATPerceptionSystemCode { get; set; }
         public decimal SUNATPerceptionPercent { get; set; }
-        public PayableAmount TotalInvoiceAmount { get; set; }
-        public PayableAmount TotalPaid { get; set; }
+        public PayableAmount TotalInvoiceAmount { get; set; }        
         public PayableAmount TaxableAmount { get; set; }
         public decimal SUNATTotalCashed { get; set; }
     }

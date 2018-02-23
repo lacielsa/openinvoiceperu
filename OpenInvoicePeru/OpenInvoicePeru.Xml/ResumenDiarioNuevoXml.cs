@@ -107,13 +107,8 @@ namespace OpenInvoicePeru.Xml
                             CurrencyId = grupo.Moneda,
                             Value = grupo.TotalDescuentos
                         }
-                    }
-
-                };
-
-                if (grupo.MontoPercepcion > 0)
-                {
-                    linea.SUNATPerceptionSummaryDocumentReference = new SUNATPerceptionSummaryDocumentReference()
+                    },
+                    SUNATPerceptionSummaryDocumentReference = new SUNATPerceptionSummaryDocumentReference()
                     {
                         SUNATPerceptionSystemCode = grupo.RegimenPercepcion,
                         SUNATPerceptionPercent = grupo.PorcentajePercepcion,
@@ -122,14 +117,34 @@ namespace OpenInvoicePeru.Xml
                             CurrencyId = grupo.Moneda,
                             Value = grupo.MontoPercepcion
                         },
-                        TotalPaid = new PayableAmount()
+                        TaxableAmount = new PayableAmount()
                         {
                             CurrencyId = grupo.Moneda,
                             Value = grupo.TotalVenta
                         },
                         SUNATTotalCashed = grupo.MontoPercepcion + grupo.TotalVenta
-                    };
-                }
+                    }
+                };
+
+                //if (grupo.MontoPercepcion > 0)
+                //{
+                //    linea.SUNATPerceptionSummaryDocumentReference = new SUNATPerceptionSummaryDocumentReference()
+                //    {
+                //        SUNATPerceptionSystemCode = grupo.RegimenPercepcion,
+                //        SUNATPerceptionPercent = grupo.PorcentajePercepcion,
+                //        TotalInvoiceAmount = new PayableAmount()
+                //        {
+                //            CurrencyId = grupo.Moneda,
+                //            Value = grupo.MontoPercepcion
+                //        },
+                //        TaxableAmount = new PayableAmount()
+                //        {
+                //            CurrencyId = grupo.Moneda,
+                //            Value = grupo.TotalVenta
+                //        },
+                //        SUNATTotalCashed = grupo.MontoPercepcion + grupo.TotalVenta
+                //    };
+                //}
 
                 /*  if (grupo.TotalDescuentos > 0)
                    {
